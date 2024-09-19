@@ -60,6 +60,10 @@ smart-vision/
 |   |   |   ├── Settings.js
 |   |   |   └── Error404.js
 │   │   ├── hooks/                  # Custom hooks for state management
+|   |   |   ├── useCamera.js
+|   |   |   ├── useRecognition.js
+|   |   |   ├── useLocalStorage.js
+|   |   |   └── useHazardDetection.js
 │   │   ├── styles/                 # CSS/SASS stylesheets
 │   │   ├── utils/                  # Utility functions (API calls, etc.)
 │   │   ├── contexts/               # Context API for state management
