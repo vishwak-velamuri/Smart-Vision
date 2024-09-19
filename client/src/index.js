@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
-import './styles/App.css'; // Use App.css for global styles
+import 'Smart-Vision/client/src/styles/App.css'; // Use App.css for global styles
 
 ReactDOM.render(
     <React.StrictMode>

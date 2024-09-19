@@ -7,7 +7,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import 'Smart-Vision\client\src\App.js';
+import 'Smart-Vision/client/src/App.js';
 
 const App = () => {
     return (
