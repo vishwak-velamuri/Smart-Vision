@@ -100,7 +100,10 @@ smart-vision/
 |   |   |   ├── medication_service.py
 |   |   |   └── user_service.py
 │   │   ├── middlewares/            # Middleware functions (auth, logging)
+|   |   |   ├── auth_middleware.py
+|   |   |   └── logging_middleware.py
 │   │   ├── config/                 # Configuration files (database, environment vars)
+|   |   |   └── settings.py
 │   │   ├── utils/                  # Utility functions (validation, formatting)
 |   |   ├── database.py
 │   │   ├── server.py               # Main entry point for the server
