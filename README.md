@@ -89,10 +89,12 @@ smart-vision/
 |   |   |   └── user_controller.py
 │   │   ├── models/                 # Database models (ORM, schema)
 |   |   |   ├── __init__.py
-|   |   |   ├── database.py
 |   |   |   ├── medication_model.py
 |   |   |   └── user_model.py
 │   │   ├── routes/                 # API route definitions
+|   |   |   ├── __init__.py
+|   |   |   ├── medication_routes.py
+|   |   |   └── user_routes.py
 │   │   ├── services/               # Business logic and service functions
 |   |   |   ├── hazard_detection_service.py
 |   |   |   ├── medication_service.py
@@ -100,6 +102,7 @@ smart-vision/
 │   │   ├── middlewares/            # Middleware functions (auth, logging)
 │   │   ├── config/                 # Configuration files (database, environment vars)
 │   │   ├── utils/                  # Utility functions (validation, formatting)
+|   |   ├── database.py
 │   │   ├── server.py               # Main entry point for the server
 │   │   ├── error_handlers.py        # Error handling for APIs
 │   │   └── test.py                 # Test script for backend
