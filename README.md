@@ -88,6 +88,10 @@ smart-vision/
 |   |   |   ├── medication_controller.py
 |   |   |   └── user_controller.py
 │   │   ├── models/                 # Database models (ORM, schema)
+|   |   |   ├── __init__.py
+|   |   |   ├── database.py
+|   |   |   ├── medication_model.py
+|   |   |   └── user_model.py
 │   │   ├── routes/                 # API route definitions
 │   │   ├── services/               # Business logic and service functions
 |   |   |   ├── hazard_detection_service.py
