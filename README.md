@@ -105,6 +105,8 @@ smart-vision/
 │   │   ├── config/                 # Configuration files (database, environment vars)
 |   |   |   └── settings.py
 │   │   ├── utils/                  # Utility functions (validation, formatting)
+|   |   |   ├── formatting.py
+|   |   |   └── validation.py
 |   |   ├── database.py
 │   │   ├── server.py               # Main entry point for the server
 │   │   ├── error_handlers.py        # Error handling for APIs
