@@ -109,8 +109,7 @@ smart-vision/
 |   |   |   └── validation.py
 |   |   ├── database.py
 │   │   ├── server.py               # Main entry point for the server
-│   │   ├── error_handlers.py        # Error handling for APIs
-│   │   └── test.py                 # Test script for backend
+│   │   └── error_handlers.py        # Error handling for APIs
 ├── ai/                             # AI model and processing
 │   ├── models/                     # Pre-trained models and custom models
 │   │   ├── model.py                # AI model definition
