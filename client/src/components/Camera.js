@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Webcam from 'react-webcam';
 import * as tf from '@tensorflow/tfjs';
-import * as cocoSsd from '@tensorflow-models/coco-ssd';
-import './styles/Camera.css'; // Adjust path if needed
+import * as cocoSsd from '@tensorflow-models/coco-ssd'; // Ensure this module is installed
+import './styles/Camera.css'; // Adjust path based on actual file location
 
 function Camera() {
   const webcamRef = useRef(null);

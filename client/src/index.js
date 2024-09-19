@@ -1,17 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client'; // React 18+ import
 import App from './App';
+import './styles/App.css'; // Adjust the path if necessary
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router } from 'react-router-dom';
-import 'Smart-Vision/client/src/styles/App.css'; // Use App.css for global styles
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
     <React.StrictMode>
-        <Router>
-            <App />
-        </Router>
-    </React.StrictMode>,
-    document.getElementById('root')
+        <App />
+    </React.StrictMode>
 );
 
 // Register service worker for PWA capabilities
