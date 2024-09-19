@@ -65,17 +65,19 @@ smart-vision/
 |   |   |   ├── useLocalStorage.js
 |   |   |   └── useHazardDetection.js
 │   │   ├── styles/                 # CSS/SASS stylesheets
-|   |   |   ├── App.js
-|   |   |   ├── Home.js
-|   |   |   ├── About.js
-|   |   |   ├── Contact.js
-|   |   |   └── Camera.js
+|   |   |   ├── App.css
+|   |   |   ├── Home.css
+|   |   |   ├── About.css
+|   |   |   ├── Contact.css
+|   |   |   └── Camera.css
 │   │   ├── utils/                  # Utility functions (API calls, etc.)
 |   |   |   ├── api.js
 |   |   |   ├── constants.js
 |   |   |   ├── helpers.js
 |   |   |   └── validation.js
 │   │   ├── contexts/               # Context API for state management
+|   |   |   ├── AuthContext.js
+|   |   |   └── ObjectRecognitionContext.js
 │   │   ├── App.js                  # Main app component
 │   │   ├── index.js                # Entry point for React
 │   │   ├── serviceWorker.js        # Service worker for PWA
