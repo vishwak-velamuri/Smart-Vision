@@ -1,0 +1,48 @@
+{
+    "name": "smart-vision",
+    "version": "1.0.0",
+    "description": "AI-powered eyeglasses for Alzheimer's and AMD patients.",
+    "main": "index.js",
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject"
+    },
+    "dependencies": {
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "react-scripts": "5.0.1",
+      "axios": "^0.27.2",
+      "react-router-dom": "^6.3.0",
+      "redux": "^4.2.1",
+      "react-redux": "^8.0.5",
+      "socket.io-client": "^4.5.4",
+      "bootstrap": "^5.2.0",
+      "react-bootstrap": "^2.5.0",
+      "chart.js": "^3.9.0",
+      "react-chartjs-2": "^3.0.5"
+    },
+    "devDependencies": {
+      "jest": "^27.5.1",
+      "eslint": "^8.25.0",
+      "eslint-config-prettier": "^8.5.0",
+      "eslint-plugin-react": "^7.32.0",
+      "prettier": "^2.7.1"
+    },
+    "homepage": "https://vishwak-velamuri.github.io/smart-vision",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/vishwak-velamuri/smart-vision.git"
+    },
+    "keywords": [
+      "AI",
+      "React",
+      "Smart Glasses",
+      "Alzheimer's",
+      "AMD"
+    ],
+    "author": "Vishwak Velamuri",
+    "license": "MIT"
+  }
+  
