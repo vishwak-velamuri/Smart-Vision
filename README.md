@@ -52,8 +52,13 @@ smart-vision/
 |   |   |   ├── MedicationRecognition.js
 |   |   |   ├── HazardDetection.js
 |   |   |   ├── HardwareControls.js
-|   |   |   ├── LoadingSpinner.js
+|   |   |   └── LoadingSpinner.js
 │   │   ├── pages/                  # Page components (Home, About, etc.)
+|   |   |   ├── Home.js
+|   |   |   ├── About.js
+|   |   |   ├── Contact.js
+|   |   |   ├── Settings.js
+|   |   |   └── Error404.js
 │   │   ├── hooks/                  # Custom hooks for state management
 │   │   ├── styles/                 # CSS/SASS stylesheets
 │   │   ├── utils/                  # Utility functions (API calls, etc.)
