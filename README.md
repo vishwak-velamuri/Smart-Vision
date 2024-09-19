@@ -45,6 +45,14 @@ smart-vision/
 │   │   └── manifest.json           # Web app manifest for PWA
 │   ├── src/                        # React source files
 │   │   ├── components/             # Reusable React components
+|   |   |   ├── Header.js
+|   |   |   ├── Footer.js
+|   |   |   ├── Camera.js
+|   |   |   ├── ObjectRecognition.js
+|   |   |   ├── MedicationRecognition.js
+|   |   |   ├── HazardDetection.js
+|   |   |   ├── HardwareControls.js
+|   |   |   ├── LoadingSpinner.js
 │   │   ├── pages/                  # Page components (Home, About, etc.)
 │   │   ├── hooks/                  # Custom hooks for state management
 │   │   ├── styles/                 # CSS/SASS stylesheets
