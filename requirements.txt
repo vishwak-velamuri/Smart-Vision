@@ -1,0 +1,20 @@
+# Python packages for the backend and AI model development
+Flask==2.3.2               # Web framework for building APIs
+Flask-Cors==3.0.10         # CORS support for Flask
+Flask-RESTful==0.3.9       # Extension for Flask for building REST APIs
+SQLAlchemy==1.4.49         # SQL toolkit and Object-Relational Mapping (ORM)
+pandas==1.5.3              # Data manipulation and analysis
+numpy==1.23.5              # Numerical computing library
+scikit-learn==1.2.0        # Machine learning library
+tensorflow==2.11.0         # Machine learning framework for building AI models
+opencv-python==4.6.0.66    # Library for computer vision tasks
+Pillow==9.3.0              # Python Imaging Library for image processing
+requests==2.28.1           # HTTP library for making API calls
+pytest==7.1.3              # Testing framework for Python
+gunicorn==20.1.0           # WSGI HTTP server for running the app in production
+jupyter==1.0.0             # Jupyter notebook for interactive coding and visualization
+matplotlib==3.6.2          # Library for creating static, animated, and interactive visualizations
+seaborn==0.12.1            # Statistical data visualization based on matplotlib
+Flask-SocketIO==5.3.0      # Real-time communication between clients and servers
+tensorflow-hub==0.12.0     # TensorFlow library for reusable machine learning modules
+pyenv==2.0.0               # Python version management tool
