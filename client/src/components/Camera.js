@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import Webcam from 'react-webcam';
 import * as tf from '@tensorflow/tfjs';
 import * as cocoSsd from '@tensorflow-models/coco-ssd';
-import 'Smart-Vision/client/src/styles/Camera.css';
+import './styles/Camera.css'; // Adjust path if needed
 
 function Camera() {
   const webcamRef = useRef(null);
@@ -10,35 +10,40 @@ function Camera() {
   const [model, setModel] = useState(null);
 
   useEffect(() => {
-    // Load COCO-SSD model
     const loadModel = async () => {
-      const loadedModel = await cocoSsd.load();
-      setModel(loadedModel);
+      try {
+        const loadedModel = await cocoSsd.load();
+        setModel(loadedModel);
+      } catch (error) {
+        console.error("Error loading COCO-SSD model:", error);
+      }
     };
     loadModel();
   }, []);
 
   const detect = async () => {
     if (model && webcamRef.current && webcamRef.current.video.readyState === 4) {
-      // Get video properties
       const video = webcamRef.current.video;
-      const videoWidth = webcamRef.current.video.videoWidth;
-      const videoHeight = webcamRef.current.video.videoHeight;
+      const videoWidth = video.videoWidth;
+      const videoHeight = video.videoHeight;
 
-      // Set canvas height and width
       canvasRef.current.width = videoWidth;
       canvasRef.current.height = videoHeight;
 
-      // Make detections
-      const predictions = await model.detect(video);
-
-      // Draw bounding boxes
-      const ctx = canvasRef.current.getContext('2d');
-      drawBoundingBoxes(predictions, ctx);
+      try {
+        const predictions = await model.detect(video);
+        const ctx = canvasRef.current.getContext('2d');
+        if (ctx) {
+          drawBoundingBoxes(predictions, ctx);
+        }
+      } catch (error) {
+        console.error("Error during detection:", error);
+      }
     }
   };
 
   const drawBoundingBoxes = (predictions, ctx) => {
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     predictions.forEach(prediction => {
       const [x, y, width, height] = prediction.bbox;
       ctx.strokeStyle = '#00FFFF';
@@ -56,7 +61,7 @@ function Camera() {
   useEffect(() => {
     const interval = setInterval(() => {
       detect();
-    }, 100);
+    }, 500); // Adjust interval as needed
     return () => clearInterval(interval);
   }, [model]);
 

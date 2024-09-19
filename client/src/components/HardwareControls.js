@@ -1,13 +1,21 @@
 import React from 'react';
 
 const HardwareControls = () => {
-    // This is where hardware control logic will go.
+    const handlePowerOn = () => {
+        // Logic to power on hardware
+        console.log('Powering On...');
+    };
+
+    const handlePowerOff = () => {
+        // Logic to power off hardware
+        console.log('Powering Off...');
+    };
+
     return (
         <div className="hardware-controls">
             <h2>Hardware Controls</h2>
-            {/* Control UI for hardware components */}
-            <button>Power On</button>
-            <button>Power Off</button>
+            <button onClick={handlePowerOn}>Power On</button>
+            <button onClick={handlePowerOff}>Power Off</button>
             {/* Additional controls as needed */}
         </div>
     );
