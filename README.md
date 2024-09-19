@@ -81,27 +81,24 @@ smart-vision/
 │   │   ├── App.js                  # Main app component
 │   │   ├── index.js                # Entry point for React
 │   │   ├── serviceWorker.js        # Service worker for PWA
-│   │   └── setupTests.js           # Test setup for Jest
-│   └── tests/                      # Frontend tests
-│       ├── App.test.js             # Tests for App component
-│       └── other tests...          # Other component tests
 ├── server/                         # Backend application
 │   ├── app/                        # Main app logic
 │   │   ├── controllers/            # Request handlers for API
+|   |   |   ├── hazard_detection_controller.py
+|   |   |   ├── medication_controller.py
+|   |   |   └── user_controller.py
 │   │   ├── models/                 # Database models (ORM, schema)
 │   │   ├── routes/                 # API route definitions
 │   │   ├── services/               # Business logic and service functions
+|   |   |   ├── hazard_detection_service.py
+|   |   |   ├── medication_service.py
+|   |   |   └── user_service.py
 │   │   ├── middlewares/            # Middleware functions (auth, logging)
 │   │   ├── config/                 # Configuration files (database, environment vars)
 │   │   ├── utils/                  # Utility functions (validation, formatting)
 │   │   ├── server.py               # Main entry point for the server
 │   │   ├── error_handlers.py        # Error handling for APIs
 │   │   └── test.py                 # Test script for backend
-│   └── tests/                      # Backend tests
-│       ├── controllers.test.py     # Tests for controllers
-│       ├── models.test.py          # Tests for models
-│       ├── routes.test.py          # Tests for routes
-│       └── integration.test.py      # Integration tests for API
 ├── ai/                             # AI model and processing
 │   ├── models/                     # Pre-trained models and custom models
 │   │   ├── model.py                # AI model definition
@@ -118,13 +115,6 @@ smart-vision/
 │   │   ├── medication_recognition.py # Medication distinction algorithms
 │   │   └── real_time_processing.py  # Real-time processing scripts
 │   └── requirements.txt            # Python dependencies for AI models
-├── tests/                          # Integration and end-to-end tests
-│   ├── e2e/                        # End-to-end test cases
-│   │   └── e2e.test.js             # Test script for end-to-end testing
-│   ├── unit/                       # Unit tests for various components
-│   │   ├── client.test.js          # Unit tests for client-side
-│   │   ├── server.test.js          # Unit tests for server-side
-│   │   └── ai.test.py              # Unit tests for AI models
 ├── scripts/                        # Utility scripts for development
 │   ├── setup_db.py                 # Script to set up the database
 │   ├── run_migrations.py           # Script to run database migrations
