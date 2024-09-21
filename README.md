@@ -48,9 +48,7 @@ smart-vision/
 |   |   |   ├── Header.js
 |   |   |   ├── Footer.js
 |   |   |   ├── Camera.js
-|   |   |   ├── ObjectRecognition.js
 |   |   |   ├── MedicationRecognition.js
-|   |   |   ├── HazardDetection.js
 |   |   |   ├── HardwareControls.js
 |   |   |   └── LoadingSpinner.js
 │   │   ├── pages/                  # Page components (Home, About, etc.)
@@ -62,8 +60,7 @@ smart-vision/
 │   │   ├── hooks/                  # Custom hooks for state management
 |   |   |   ├── useCamera.js
 |   |   |   ├── useRecognition.js
-|   |   |   ├── useLocalStorage.js
-|   |   |   └── useHazardDetection.js
+|   |   |   └── useLocalStorage.js
 │   │   ├── styles/                 # CSS/SASS stylesheets
 |   |   |   ├── App.css
 |   |   |   ├── Home.css
@@ -76,15 +73,13 @@ smart-vision/
 |   |   |   ├── helpers.js
 |   |   |   └── validation.js
 │   │   ├── contexts/               # Context API for state management
-|   |   |   ├── AuthContext.js
-|   |   |   └── ObjectRecognitionContext.js
+|   |   |   └── AuthContext.js
 │   │   ├── App.js                  # Main app component
 │   │   ├── index.js                # Entry point for React
 │   │   ├── serviceWorker.js        # Service worker for PWA
 ├── server/                         # Backend application
 │   ├── app/                        # Main app logic
 │   │   ├── controllers/            # Request handlers for API
-|   |   |   ├── hazard_detection_controller.py
 |   |   |   ├── medication_controller.py
 |   |   |   └── user_controller.py
 │   │   ├── models/                 # Database models (ORM, schema)
@@ -96,7 +91,6 @@ smart-vision/
 |   |   |   ├── medication_routes.py
 |   |   |   └── user_routes.py
 │   │   ├── services/               # Business logic and service functions
-|   |   |   ├── hazard_detection_service.py
 |   |   |   ├── medication_service.py
 |   |   |   └── user_service.py
 │   │   ├── middlewares/            # Middleware functions (auth, logging)
@@ -120,7 +114,6 @@ smart-vision/
 │   │   ├── dataset/                # Raw dataset
 │   │   └── annotations/            # Annotations for training
 │   ├── inference/                  # Inference logic
-│   │   ├── object_detection.py      # Object detection script
 │   │   ├── low_light_detection.py   # Low-light detection logic
 │   │   ├── medication_recognition.py # Medication distinction algorithms
 │   │   └── real_time_processing.py  # Real-time processing scripts
