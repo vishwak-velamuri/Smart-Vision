@@ -118,7 +118,6 @@ smart-vision/
 │   │   └── export_model.py         # Script to export trained model
 │   ├── data/                       # Data files for training and testing
 │   │   ├── dataset/                # Raw dataset
-│   │   ├── processed/              # Processed dataset
 │   │   └── annotations/            # Annotations for training
 │   ├── inference/                  # Inference logic
 │   │   ├── object_detection.py      # Object detection script
