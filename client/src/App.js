@@ -1,13 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';
-import { ObjectRecognitionProvider } from './contexts/ObjectRecognitionContext';
-import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import './styles/App.css'; // Correct path for CSS
+import { AuthProvider } from 'client/src/contexts/AuthContext';
+import Home from 'client/src/pages/Home';
+import About from 'client/src/pages/About';
+import Contact from 'client/src/pages/Contact';
+import Header from 'client/src/components/Header';
+import Footer from 'client/src/components/Footer';
+import 'client/src/styles/App.css'; // Correct path for CSS
 
 const App = () => {
     return (

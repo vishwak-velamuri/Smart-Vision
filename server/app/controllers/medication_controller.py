@@ -21,3 +21,14 @@ def get_medication(medication_id):
 def list_medications():
     medications = medication_service.list_medications()
     return jsonify(medications), 200
+
+@medication_controller.route('/recognize', methods=['POST'])
+def recognize_medication():
+    data = request.json
+    detected_pill = {
+        'color': data.get('color'),
+        'shape': data.get('shape'),
+        'imprint': data.get('imprint')
+    }
+    result = medication_service.recognize_medication(detected_pill)
+    return jsonify(result)

@@ -29,6 +29,6 @@ def evaluate_model(model_path, test_dir, input_shape=(224, 224, 3), batch_size=3
 if __name__ == "__main__":
     # Set the path to your trained model and test directory
     model_path = 'smart_vision_model.h5'
-    test_directory = 'path/to/test_data'
+    test_directory = 'ai/data/dataset/test'
     
     evaluate_model(model_path, test_directory)

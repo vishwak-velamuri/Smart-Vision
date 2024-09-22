@@ -112,10 +112,10 @@ smart-vision/
 │   │   └── export_model.py         # Script to export trained model
 │   ├── data/                       # Data files for training and testing
 │   │   ├── dataset/                # Raw dataset
-│   │   └── annotations/            # Annotations for training
+│   │   └── annotations.json        # Annotations for training
 │   ├── inference/                  # Inference logic
-│   │   ├── low_light_detection.py   # Low-light detection logic
 │   │   ├── medication_recognition.py # Medication distinction algorithms
+│   │   ├── low_light_detection.py   # Low-light detection logic
 │   │   └── real_time_processing.py  # Real-time processing scripts
 │   └── requirements.txt            # Python dependencies for AI models
 ├── scripts/                        # Utility scripts for development

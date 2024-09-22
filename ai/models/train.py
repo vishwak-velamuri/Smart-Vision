@@ -51,7 +51,7 @@ def train_model(train_dir, val_dir, input_shape=(224, 224, 3), num_classes=1000,
 
 if __name__ == "__main__":
     # Set paths to your training and validation directories
-    train_directory = 'path/to/train_data'
-    validation_directory = 'path/to/val_data'
+    train_directory = 'ai/data/dataset/train'
+    validation_directory = 'ai/data/dataset/valid'
     
     model = train_model(train_directory, validation_directory)
