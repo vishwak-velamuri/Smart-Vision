@@ -1,8 +1,8 @@
-# Smart-Vision - WORK IN PROGRESS
+# Smart-Vision
 
 ## Overview
 
-**Smart Vision** is an AI-powered system designed to assist Alzheimer's and Age-related Macular Degeneration (AMD) patients by providing real-time object recognition and environmental hazard detection. The system uses AI models developed in TensorFlow, optimized for low-power hardware, and delivers fast and accurate pill and item recognition, even under low-light conditions.
+**Smart Vision** is an AI-powered system designed to assist Alzheimer's and Age-related Macular Degeneration (AMD) patients by providing real-time medication detection. The system uses AI models developed in TensorFlow, optimized for low-power hardware, and delivers fast and accurate pill recognition, even under low-light conditions.
 
 Key features include:
 - 95% accuracy in pill and item recognition.
