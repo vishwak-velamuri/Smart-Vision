@@ -2,6 +2,7 @@ import json
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from difflib import SequenceMatcher
+from math import sqrt
 
 # Load annotations from JSON file
 def load_annotations(json_file):
@@ -12,7 +13,6 @@ def load_annotations(json_file):
 shape_codes = {
     "C48335": "BULLET",
     "C48336": "CAPSULE",
-    "C48337": "CLOVER",
     "C48338": "DIAMOND",
     "C48339": "DOUBLE CIRCLE",
     "C48340": "FREEFORM",
@@ -44,6 +44,30 @@ color_codes = {
     "C48334": "TURQUOISE",
     "C483352": "PALE"
 }
+
+color_hexes = {
+    "BLACK": (0, 0, 0),
+    "GRAY": (128, 128, 128),
+    "WHITE": (255, 255, 255),
+    "RED": (255, 0, 0),
+    "PURPLE": (128, 0, 128),
+    "PINK": (255, 192, 203),
+    "GREEN": (0, 255, 0),
+    "YELLOW": (255, 255, 0),
+    "ORANGE": (255, 165, 0),
+    "BROWN": (165, 42, 42),
+    "BLUE": (0, 0, 255),
+    "TURQUOISE": (64, 224, 208),
+    "PALE": (250, 250, 210)
+}
+
+# Find deteced color based on hex code from camera
+def extract_color(color):
+    def euclidean_distance(color1, color2):
+        return sqrt(sum((c1 - c2) ** 2 for c1, c2 in zip(color1, color2)))
+    color_tuple = min(color_hexes.items(), key=lambda item: euclidean_distance(detected_color, item[1]))
+    detected_color = color_tuple[0]
+    return detected_color
 
 # Convert detected color to color code
 def convert_color_to_code(detected_color_name):
