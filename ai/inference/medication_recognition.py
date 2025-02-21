@@ -11,22 +11,9 @@ def load_annotations(json_file):
 
 # Create mappings for shapes and colors
 shape_codes = {
-    "C48335": "BULLET",
     "C48336": "CAPSULE",
-    "C48338": "DIAMOND",
-    "C48339": "DOUBLE CIRCLE",
-    "C48340": "FREEFORM",
-    "C48343": "HEXAGON (6 SIDED)",
-    "C48344": "OCTAGON (8 SIDED)",
     "C48345": "OVAL",
-    "C48346": "PENTAGON (5 SIDED)",
-    "C48347": "RECTANGLE",
     "C48348": "ROUND",
-    "C48349": "SEMI-CIRCLE",
-    "C48350": "SQUARE",
-    "C48351": "TEAR",
-    "C48353": "TRIANGLE",
-    "C48352": "TRAPEZOID"
 }
 
 color_codes = {
