@@ -1,6 +1,5 @@
 import json
 import numpy as np
-from sklearn.metrics.pairwise import cosine_similarity
 from difflib import SequenceMatcher
 from math import sqrt
 
@@ -48,13 +47,13 @@ color_hexes = {
     "PALE": (250, 250, 210)
 }
 
-# Find deteced color based on hex code from camera
-def extract_color(color):
+# Find detected color based on hex code from camera
+def extract_color(detected_color):
     def euclidean_distance(color1, color2):
         return sqrt(sum((c1 - c2) ** 2 for c1, c2 in zip(color1, color2)))
+    
     color_tuple = min(color_hexes.items(), key=lambda item: euclidean_distance(detected_color, item[1]))
-    detected_color = color_tuple[0]
-    return detected_color
+    return color_tuple[0]
 
 # Convert detected color to color code
 def convert_color_to_code(detected_color_name):
@@ -72,58 +71,68 @@ def convert_shape_to_code(detected_shape_name):
 
 # Calculate similarity score for imprint using SequenceMatcher
 def similarity_ratio(a, b):
-    return SequenceMatcher(None, a, b).ratio()
+    if not a or not b:
+        return 0.0
+    return SequenceMatcher(None, str(a).lower(), str(b).lower()).ratio()
 
-# Calculate weighted cosine similarity
+# Calculate weighted similarity
 def calculate_similarity(detected_pill, annotations):
-    perfect_matches = []
-    closest_matches = []
+    matches = []
     
     for pill in annotations:
         try:
-            imprint = pill['imprint']
-            shape_code = pill['shape_text']
-            color_codes_list = pill['color_text'].split(';')
+            imprint = pill.get('imprint', '')
+            shape_code = pill.get('shape_text', '')
+            color_codes_str = pill.get('color_text', '')
+            color_codes_list = color_codes_str.split(';') if color_codes_str else []
             
-            if detected_pill['imprint'] == imprint:
-                perfect_matches.append((pill['medicine_name'], 1.0))
+            # Calculate individual feature scores
+            imprint_score = similarity_ratio(detected_pill['imprint'], imprint)
+            shape_score = 1.0 if detected_pill['shape'] == shape_code else 0.0
+            color_score = 1.0 if detected_pill['color'] in color_codes_list else 0.0
             
-            shape_vector = 1 if detected_pill['shape'] == shape_code else 0
-            color_vector = 1 if detected_pill['color'] in color_codes_list else 0
+            # Calculate weighted total score
+            total_score = (0.5 * imprint_score + 0.3 * shape_score + 0.2 * color_score)
             
-            feature_vector = (0.3 * shape_vector + 0.2 * color_vector)
-            closest_matches.append((pill['medicine_name'], feature_vector))
+            # Add to matches - just include name and score (removing the details dictionary)
+            matches.append((pill.get('medicine_name', 'Unknown'), total_score))
         
-        except KeyError as e:
-            print(f"Missing key: {e} in pill entry: {pill}")
+        except Exception as e:
+            print(f"Error processing pill entry: {e}")
             continue
 
-    if perfect_matches:
-        return perfect_matches
-
-    if closest_matches:
-        best_closest_match = max(closest_matches, key=lambda x: x[1])
-        return [best_closest_match]
-
-    return []
+    # Sort by score
+    matches.sort(key=lambda x: x[1], reverse=True)
+    return matches[:5]  # Return top 5 matches
 
 # Find the best match
 def find_best_match(similarities):
-    best_match = max(similarities, key=lambda x: x[1])
-    return best_match
+    if not similarities:
+        return None
+    return similarities[0]
 
 # Main function for recognizing pills
 def recognize_medication(detected_shape, detected_color, detected_imprint, json_file):
-    annotations = load_annotations(json_file)
+    try:
+        annotations = load_annotations(json_file)
+        
+        # If color is a RGB tuple, extract the closest color name
+        if isinstance(detected_color, tuple) and len(detected_color) == 3:
+            detected_color = extract_color(detected_color)
+        
+        detected_pill = {
+            'shape': convert_shape_to_code(detected_shape),
+            'imprint': detected_imprint,
+            'color': convert_color_to_code(detected_color)
+        }
+        
+        print(f"Looking for pill with shape: {detected_shape} ({detected_pill['shape']}), "
+              f"color: {detected_color} ({detected_pill['color']}), "
+              f"imprint: {detected_imprint}")
+        
+        similarities = calculate_similarity(detected_pill, annotations)
+        return similarities
     
-    detected_pill = {
-        'shape': convert_shape_to_code(detected_shape),
-        'imprint': detected_imprint,
-        'color': convert_color_to_code(detected_color)
-    }
-    
-    similarities = calculate_similarity(detected_pill, annotations)
-    if similarities:
-        best_match = find_best_match(similarities)
-        return best_match
-    return None
+    except Exception as e:
+        print(f"Error in medication recognition: {e}")
+        return []
