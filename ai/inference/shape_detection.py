@@ -41,7 +41,7 @@ def detect_shape(image):
                 if rect_ratio > 2.5:  # More elongated than an oval
                     shape = "Capsule"
 
-        # Draw detected shape on image (optional)
+        # Draw detected shape on image
         cv2.drawContours(image, [contour], -1, (0, 255, 0), 2)
         cv2.putText(image, shape, (int(x), int(y)), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
 
